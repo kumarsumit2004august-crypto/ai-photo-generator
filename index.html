@@ -1,26 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Photo Generator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Photo Generator Pro</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>AI Photo Generator</h1>
-        <p>Generate stunning AI images instantly.</p>
-
-        <input type="text" id="prompt" placeholder="Enter your prompt...">
-
-        <button id="generateBtn">Generate Image</button>
-
-        <div id="result">
-            <img id="image" src="" alt="">
-        </div>
+<header class="navbar">
+    <div class="logo">
+        🤖 AI Photo Generator
     </div>
 
-    <script src="script.js"></script>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Gallery</a>
+        <a href="#">Pricing</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+<h1>Create Amazing AI Images</h1>
+
+<p>
+Generate ultra realistic, anime, cinematic and 3D images
+within seconds using AI.
+</p>
+
+<div class="generator-box">
+
+<input
+type="text"
+id="prompt"
+placeholder="Describe your imagination..."
+>
+
+<div class="options">
+
+<select id="style">
+<option>Realistic</option>
+<option>Anime</option>
+<option>3D Render</option>
+<option>Digital Art</option>
+<option>Fantasy</option>
+</select>
+
+<select id="size">
+<option>512 x 512</option>
+<option>768 x 768</option>
+<option>1024 x 1024</option>
+</select>
+
+</div>
+
+<button id="generateBtn">
+Generate Image
+</button>
+
+</div>
+
+</section>
+
+<section class="result-section">
+
+<div class="image-card">
+
+<img
+id="image"
+src=""
+alt=""
+>
+
+<p id="status">
+Your generated image will appear here.
+</p>
+
+<button id="downloadBtn">
+Download
+</button>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+
 </body>
 </html>
