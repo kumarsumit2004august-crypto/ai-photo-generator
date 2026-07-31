@@ -1,156 +1,48 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+const prompt = document.getElementById("prompt");
+const generateBtn = document.getElementById("generateBtn");
+const image = document.getElementById("image");
+const statusText = document.getElementById("status");
+const downloadBtn = document.getElementById("downloadBtn");
 
-body{
-background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
-color:white;
-min-height:100vh;
-}
+downloadBtn.style.display = "none";
 
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(12px);
-position:sticky;
-top:0;
-}
+generateBtn.addEventListener("click", () => {
 
-.logo{
-font-size:28px;
-font-weight:700;
-}
+    if (prompt.value.trim() === "") {
+        alert("Please enter a prompt.");
+        return;
+    }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-transition:.3s;
-}
+    statusText.innerHTML = "Generating image...";
+    generateBtn.disabled = true;
 
-nav a:hover{
-color:#60a5fa;
-}
+    setTimeout(() => {
 
-.hero{
-text-align:center;
-padding:70px 20px;
-}
+        image.src =
+        "https://picsum.photos/1024/1024?random=" +
+        Math.floor(Math.random()*100000);
 
-.hero h1{
-font-size:56px;
-margin-bottom:15px;
-}
+        image.style.display = "block";
 
-.hero p{
-max-width:700px;
-margin:auto;
-opacity:.8;
-font-size:18px;
-}
+        statusText.innerHTML =
+        "Demo image generated successfully.";
 
-.generator-box{
-margin:40px auto;
-max-width:700px;
-background:rgba(255,255,255,.08);
-padding:30px;
-border-radius:20px;
-backdrop-filter:blur(18px);
-}
+        downloadBtn.style.display = "block";
 
-input{
-width:100%;
-padding:18px;
-border:none;
-border-radius:12px;
-font-size:18px;
-margin-bottom:20px;
-}
+        generateBtn.disabled = false;
 
-.options{
-display:flex;
-gap:15px;
-margin-bottom:20px;
-}
+    },2000);
 
-select{
-flex:1;
-padding:15px;
-border:none;
-border-radius:12px;
-font-size:16px;
-}
+});
 
-button{
-width:100%;
-padding:18px;
-border:none;
-border-radius:12px;
-background:#2563eb;
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
-}
+downloadBtn.addEventListener("click",()=>{
 
-button:hover{
-background:#1d4ed8;
-transform:scale(1.02);
-}
+    const a=document.createElement("a");
 
-.result-section{
-padding:50px 20px;
-display:flex;
-justify-content:center;
-}
+    a.href=image.src;
 
-.image-card{
-background:rgba(255,255,255,.08);
-padding:20px;
-border-radius:20px;
-max-width:700px;
-width:100%;
-text-align:center;
-}
+    a.download="AI-Image.jpg";
 
-#image{
-width:100%;
-display:none;
-border-radius:15px;
-margin-bottom:20px;
-}
+    a.click();
 
-#status{
-opacity:.8;
-margin-bottom:20px;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:38px;
-}
-
-.options{
-flex-direction:column;
-}
-
-.navbar{
-flex-direction:column;
-gap:15px;
-}
-
-nav{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-}
+});
